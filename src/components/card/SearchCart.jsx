@@ -14,6 +14,8 @@ const SearchCart = () => {
   const [mainCategorySelected, setMainCategorySelected] = useState(null);
   const [subCategorySelected, setSubCategorySelected] = useState(null);
   const [price, setPrice] = useState([100, 50000]);
+  const [minInput, setMinInput] = useState(100);
+  const [maxInput, setMaxInput] = useState(50000);
   const [ok, setOk] = useState(false);
 
   // โหลด category
@@ -67,6 +69,28 @@ const SearchCart = () => {
 
   const handlePrice = (value) => {
     setPrice(value);
+    setMinInput(value[0]);
+    setMaxInput(value[1]);
+    setTimeout(() => setOk(!ok), 300);
+  };
+
+  // Handler สำหรับพิมพ์ Min
+  const handleMinInput = (e) => {
+    const val = parseInt(e.target.value) || 0;
+    setMinInput(val);
+    const newMax = Math.max(val, maxInput);
+    setPrice([val, newMax]);
+    setMaxInput(newMax);
+    setTimeout(() => setOk(!ok), 300);
+  };
+
+  // Handler สำหรับพิมพ์ Max
+  const handleMaxInput = (e) => {
+    const val = parseInt(e.target.value) || 0;
+    setMaxInput(val);
+    const newMin = Math.min(val, minInput);
+    setPrice([newMin, val]);
+    setMinInput(newMin);
     setTimeout(() => setOk(!ok), 300);
   };
 
@@ -133,10 +157,35 @@ const SearchCart = () => {
 
       {/* Search by Price */}
       <div>
-        <h1 className="font-semibold mb-2">ค้นหาราคา</h1>
+        <h1 className="font-semibold mb-2">ค้นหาในช่วงราคา</h1>
+        
+        {/* Input Min/Max */}
+        <div className="flex gap-2 mb-4">
+          <div className="flex-1">
+            <label className="text-xs text-gray-600">Min</label>
+            <input
+              type="number"
+              className="border rounded-md px-2 py-1.5 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={minInput}
+              onChange={handleMinInput}
+              min={0}
+            />
+          </div>
+          <div className="flex-1">
+            <label className="text-xs text-gray-600">Max</label>
+            <input
+              type="number"
+              className="border rounded-md px-2 py-1.5 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={maxInput}
+              onChange={handleMaxInput}
+              min={0}
+            />
+          </div>
+        </div>
+
+        {/* Slider */}
         <div>
           <div className="flex justify-between text-sm text-gray-600 mb-2">
-            {/* <--- 2. แก้ไขตรงนี้ ใส่ numberFormat */}
             <span>Min : {numberFormat(price[0])}</span>
             <span>Max : {numberFormat(price[1])}</span>
           </div>
@@ -145,7 +194,7 @@ const SearchCart = () => {
             range
             min={0}
             max={150000}
-            defaultValue={[100, 50000]}
+            value={price}
             trackStyle={{ backgroundColor: '#2563eb' }} // ปรับสีเส้น Slider ให้สวยขึ้น
             handleStyle={{ borderColor: '#2563eb', backgroundColor: '#2563eb' }} // ปรับสีปุ่ม Slider
           />
