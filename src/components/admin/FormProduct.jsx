@@ -389,14 +389,14 @@ const FormProduct = () => {
             <table className="w-full text-left border-collapse">
                 <thead className="bg-gray-50 text-gray-600 uppercase text-xs font-semibold tracking-wider">
                     <tr>
-                        <th className="p-4 text-center w-16">No.</th>
-                        <th className="p-4 text-center w-24">Image</th>
-                        <th className="p-4">สินค้า (Product Details)</th>
-                        <th className="p-4 text-center">ราคา (Price)</th>
-                        <th className="p-4 text-center">คลัง (Stock)</th>
-                        <th className="p-4 text-center">ขายแล้ว (Sold)</th>
-                        <th className="p-4 text-right">อัพเดท (Updated)</th>
-                        <th className="p-4 text-center">จัดการ (Actions)</th>
+                        <th className="p-4 text-center w-16">ลำดับ</th>
+                        <th className="p-4 text-center w-24">รูปภาพ</th>
+                        <th className="p-4">สินค้า</th>
+                        <th className="p-4 text-center">ราคา</th>
+                        <th className="p-4 text-center">คลัง</th>
+                        <th className="p-4 text-center">ขายแล้ว</th>
+                        <th className="p-4 text-right">อัพเดท</th>
+                        <th className="p-4 text-center">จัดการ</th>
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">

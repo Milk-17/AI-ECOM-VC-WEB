@@ -45,6 +45,21 @@ const HistoryCard = () => {
     }
   };
 
+  const getStatusLabel = (status) => {
+    switch (status) {
+      case "Not Process":
+        return "รอตรวจสอบ";
+      case "Processing":
+        return "กำลังดำเนินการ";
+      case "Completed":
+        return "จัดส่งสำเร็จ";
+      case "Cancelled":
+        return "ยกเลิก";
+      default:
+        return status;
+    }
+  };
+
   const formatDate = (dateString) => {
     if (!dateString) return "-";
     return new Date(dateString).toLocaleDateString("th-TH", {
@@ -119,7 +134,7 @@ const HistoryCard = () => {
 
                 <div>
                   <span className={`px-3 py-1 rounded-full text-xs font-bold border whitespace-nowrap ${getStatusColor(item.orderStatus)}`}>
-                    {item.orderStatus}
+                    {getStatusLabel(item.orderStatus)}
                   </span>
                 </div>
               </div>

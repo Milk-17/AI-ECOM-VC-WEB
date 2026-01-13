@@ -29,6 +29,21 @@ const OrderTable = ({
     }
   };
 
+  const getStatusLabel = (status) => {
+    switch (status) {
+      case "Not Process":
+        return "รอตรวจสอบ";
+      case "Processing":
+        return "กำลังดำเนินการ";
+      case "Completed":
+        return "จัดส่งสำเร็จ";
+      case "Cancelled":
+        return "ยกเลิก";
+      default:
+        return status;
+    }
+  };
+
   const [editingTrackingId, setEditingTrackingId] = useState(null);
   const [savingId, setSavingId] = useState(null);
 
@@ -225,7 +240,7 @@ const OrderTable = ({
                       item.orderStatus
                     )}`}
                   >
-                    {item.orderStatus}
+                    {getStatusLabel(item.orderStatus)}
                   </span>
                 </td>
 

@@ -13,6 +13,21 @@ const RecentOrders = () => {
     fetchOrders();
   }, [token]);
 
+  const getStatusLabel = (status) => {
+    switch (status) {
+      case "Not Process":
+        return "รอตรวจสอบ";
+      case "Processing":
+        return "กำลังดำเนินการ";
+      case "Completed":
+        return "จัดส่งสำเร็จ";
+      case "Cancelled":
+        return "ยกเลิก";
+      default:
+        return status;
+    }
+  };
+
   const fetchOrders = async () => {
     setLoading(true);
     try {
@@ -48,7 +63,7 @@ const RecentOrders = () => {
 
   return (
     <div className="bg-white shadow-sm rounded-xl p-6 border border-gray-100">
-      <h2 className="text-lg font-bold mb-4 text-gray-800">คำสั่งซื้อล่าสุด (Recent Orders)</h2>
+      <h2 className="text-lg font-bold mb-4 text-gray-800">คำสั่งซื้อล่าสุด</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left">
             <thead className="bg-gray-50 text-gray-600 font-medium border-b">
@@ -82,7 +97,7 @@ const RecentOrders = () => {
                                     ${o.orderStatus === 'Completed' ? 'bg-green-100 text-green-700 border-green-200' : 
                                       o.orderStatus === 'Cancelled' ? 'bg-red-100 text-red-700 border-red-200' : 
                                       'bg-blue-100 text-blue-700 border-blue-200'}`}>
-                                    {o.orderStatus}
+                                    {getStatusLabel(o.orderStatus)}
                                 </span>
                             </td>
                         </tr>

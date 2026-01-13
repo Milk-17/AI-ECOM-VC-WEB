@@ -142,12 +142,12 @@ const TableUsers = () => {
           <table className="w-full text-left border-collapse">
             <thead className="bg-gray-50 text-gray-600 uppercase text-xs font-semibold tracking-wider">
               <tr>
-                <th className="p-4 w-16 text-center">ลำดับ (No.)</th>
-                <th className="p-4">ข้อมูลผู้ใช้ (User Info)</th>
-                <th className="p-4 text-center">สิทธิ์ (Role)</th>
-                <th className="p-4 text-center">สถานะ (Status)</th>
-                <th className="p-4 text-center">จัดการ (Actions)</th>
-                <th className="p-4 text-right">อัพเดทล่าสุด (Last Updated)</th>
+                <th className="p-4 w-16 text-center">ลำดับ</th>
+                <th className="p-4">ข้อมูลผู้ใช้</th>
+                <th className="p-4 text-center">สิทธิ์</th>
+                <th className="p-4 text-center">สถานะ</th>
+                <th className="p-4 text-center">จัดการ</th>
+                <th className="p-4 text-right">อัปเดทล่าสุด</th>
               </tr>
             </thead>
 

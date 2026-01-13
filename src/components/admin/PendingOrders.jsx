@@ -44,7 +44,7 @@ const PendingOrders = () => {
             <Clock size={20} />
         </div>
         <div>
-            <h2 className="text-lg font-bold text-gray-800">คำสั่งซื้อรอตรวจสอบ (Pending Orders)</h2>
+            <h2 className="text-lg font-bold text-gray-800">คำสั่งซื้อรอตรวจสอบ</h2>
             <p className="text-xs text-gray-500">รายการที่ต้องดำเนินการตรวจสอบการชำระเงิน</p>
         </div>
       </div>
@@ -57,7 +57,7 @@ const PendingOrders = () => {
                 <div className="flex justify-center mb-3 text-gray-300">
                     <FileSearch size={48} />
                 </div>
-                <p className="text-gray-500 font-medium">ไม่มีรายการค้างตรวจสอบ (No Pending Orders)</p>
+                <p className="text-gray-500 font-medium">ไม่มีรายการค้างตรวจสอบ</p>
                 <p className="text-sm text-gray-400">คำสั่งซื้อใหม่จะปรากฏที่นี่</p>
             </div>
         ) : (
@@ -66,19 +66,19 @@ const PendingOrders = () => {
             <thead className="bg-white border-b border-gray-100">
                 <tr>
                 <th className="px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                    รหัส (Order ID)
+                    รหัส
                 </th>
                 <th className="px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                    ลูกค้า (Customer)
+                    ลูกค้า
                 </th>
                 <th className="px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                    วันที่ (Date)
+                    วันที่
                 </th>
                 <th className="px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider text-right">
-                    ยอดรวม (Total)
+                    ยอดรวม
                 </th>
                 <th className="px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider text-center">
-                    สถานะ (Status)
+                    สถานะ
                 </th>
                 </tr>
             </thead>
